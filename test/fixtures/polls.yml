@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyText
+  label_1: MyString
+  count_1: 1
+  label_2: MyString
+  count_2: 1
+  label_3: MyString
+  count_3: 1
+
+two:
+  question: MyText
+  label_1: MyString
+  count_1: 1
+  label_2: MyString
+  count_2: 1
+  label_3: MyString
+  count_3: 1
