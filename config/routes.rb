@@ -7,5 +7,11 @@ Rails.application.routes.draw do
   resources :articles
   resources :debates
 
+  get :legal, controller: :legal
+  namespace :legal do
+    get :cgu
+    get :rgpd
+  end
+
   root "home#index"
 end
