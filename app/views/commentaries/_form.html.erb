@@ -1,0 +1,32 @@
+<%= form_with(model: commentary) do |form| %>
+  <% if commentary.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
+
+      <ul>
+        <% commentary.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :comment, style: "display: block" %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div>
+    <%= form.label :is_reported, style: "display: block" %>
+    <%= form.check_box :is_reported %>
+  </div>
+
+  <div>
+    <%= form.label :is_masked, style: "display: block" %>
+    <%= form.check_box :is_masked %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

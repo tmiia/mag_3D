@@ -28,6 +28,11 @@ RailsAdmin.config do |config|
     redirect_to main_app.root_path unless current_admin
   end
 
+  config.authenticate_with do
+    warden.authenticate! scope: :admin
+  end
+  config.current_user_method(&:current_admin)
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
