@@ -27,6 +27,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_150311) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_135117) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "lead"
@@ -41,17 +55,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_150311) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+  create_table "debates", force: :cascade do |t|
+    t.string "title"
+    t.text "lead"
+    t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "debates", force: :cascade do |t|
+    t.string "title"
+    t.text "lead"
+    t.text "context"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "pseudonym"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+>>>>>>> 0d8fc04926189e5d80ab328fe7b7cf67e9c18930
   end
 
 end
