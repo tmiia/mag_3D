@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_10_20_135427) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +37,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_135427) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_130429) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "lead"
+    t.string "thumbnail"
+    t.text "text_content"
+    t.string "media"
+    t.integer "mood_value"
+    t.text "keywords"
+    t.boolean "is_longformat"
+    t.boolean "is_draft"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> 48a82211e5c1af690ef538c69462b713a2539da0
   end
 
 end
