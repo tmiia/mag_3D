@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1) Run App
 
-Things you may want to cover:
+To install the app you will need Docker install on your computer.
 
-* Ruby version
+* Clone the repo
+* In the terminal run : ```docker-compose up```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To open the docker terminal run this command :
+```docker-compose run web bash```
