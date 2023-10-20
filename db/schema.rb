@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_130429) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_135117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_130429) do
     t.text "keywords"
     t.boolean "is_longformat"
     t.boolean "is_draft"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "debates", force: :cascade do |t|
+    t.string "title"
+    t.text "lead"
+    t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
