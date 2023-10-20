@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_144532) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_150311) do
->>>>>>> d38c292b0910bbd915b4a5c081db20dfa29f2383
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_150744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,18 +47,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_150311) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "commentaries", force: :cascade do |t|
+    t.text "comment"
+    t.boolean "is_reported"
+    t.boolean "is_masked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "debates", force: :cascade do |t|
     t.string "title"
     t.text "lead"
     t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string "pseudonym"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-=======
->>>>>>> 0d8fc04926189e5d80ab328fe7b7cf67e9c18930
   end
 
   create_table "tags", force: :cascade do |t|
@@ -79,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_150311) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pseudonym"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

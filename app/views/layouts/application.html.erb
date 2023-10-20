@@ -13,10 +13,11 @@
           <li>
             <a href="/">Accueil</a>
           </li>
-          <li>
-            <a href="/admin">Dashboard</a>
-          </li>
-          <% if current_user %>
+          <% if current_admin %>
+            <li>
+              <a href="/admin">Dashboard</a>
+            </li>
+          <% elsif current_user %>
             <li>
               <%= link_to 'Compte', edit_user_registration_path %>
             </li>
