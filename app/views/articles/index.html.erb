@@ -2,6 +2,17 @@
 
 <h1>Articles</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit "Search" %>
+<% end %>
+
+<div>
+  <%= sort_link(@q, :category, "Category") %>
+  <%= sort_link(@q, :is_longformat, "Long format") %>
+  <%= sort_link(@q, :created_at, "Created at") %>
+</div>
 
 <div id="articles">
   <% @articles.each do |article| %>

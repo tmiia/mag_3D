@@ -47,6 +47,7 @@ gem "devise"
 gem "breadcrumbs_on_rails"
 gem 'rails_admin', '~> 3.0'
 gem 'ransack'
+gem 'tinymce-rails'
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

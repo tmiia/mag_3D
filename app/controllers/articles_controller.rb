@@ -3,23 +3,23 @@ class ArticlesController < ApplicationController
   # add_breadcrumb "admin", :rails_admin_path, unles: [:index, :show]
   add_breadcrumb "articles", :articles_path, only: [:index, :show]
 
-  # def index
-  #   @q = Article.ransack(params[:q])
-  #   @articles = @q.result(distinct: true)
-  # end
+  def index
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true)
+  end
 
   def en_360
     add_breadcrumb "fomat en 360", :en_360_path
-    @long_articles = Article.where(is_longformat: true)
-    # @q = Article.where(is_longformat: true).ransack(params[:q])
-    # @long_articles = @q.result(distinct: true)
+    # @long_articles = Article.where(is_longformat: true)
+    @q = Article.where(is_longformat: true).ransack(params[:q])
+    @long_articles = @q.result(distinct: true)
   end
 
   def actus
     add_breadcrumb "les actus", :actus_path
-    @info_articles = Article.where(is_longformat: false)
-    # @q = Article.where(is_longformat: false).ransack(params[:q])
-    # @info_articles = @q.result(distinct: true)
+    # @info_articles = Article.where(is_longformat: false)
+    @q = Article.where(is_longformat: false).ransack(params[:q])
+    @info_articles = @q.result(distinct: true)
   end
 
   # GET /articles/1 or /articles/1.json
