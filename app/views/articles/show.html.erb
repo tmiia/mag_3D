@@ -9,6 +9,14 @@
   <%= button_to "Destroy this article", @article, method: :delete %>
 </div>
 
+<h2>Comments</h2>
+<% @article.commentaries.each do |commentary| %>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= commentary.comment %>
+  </p>
+<% end %>
 
 <h2>Add a comment:</h2>
 <%= form_with model: [ @article, @article.commentaries.build ] do |form| %>
@@ -17,6 +25,7 @@
     <%= form.text_field :commenter %>
   </p>
   <p>
+  
     <%= form.label :body %><br>
     <%= form.text_area :body %>
   </p>
