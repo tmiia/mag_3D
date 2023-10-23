@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: mag_production
-  username: <%= Rails.application.credentials.production[:database][:username] %>
-  password: <%= Rails.application.credentials.production[:database][:password] %>
+  username: mag_debagouleurs
+  password: mag_debagouleurs_password
