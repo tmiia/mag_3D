@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
-  add_breadcrumb "admin", :rails_admin_path, unles: [:index, :show]
+  # add_breadcrumb "admin", :rails_admin_path, unles: [:index, :show]
   add_breadcrumb "articles", :articles_path, only: [:index, :show]
   # GET /articles or /articles.json
   def index
