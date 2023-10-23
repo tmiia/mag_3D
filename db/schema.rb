@@ -27,15 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_133427) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "article_tags", force: :cascade do |t|
-    t.bigint "article_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_article_tags_on_article_id"
-    t.index ["tag_id"], name: "index_article_tags_on_tag_id"
-  end
-
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "lead"
@@ -138,8 +129,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_133427) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "article_tags", "articles"
-  add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "categories"
   add_foreign_key "commentaries", "articles"
   add_foreign_key "commentaries", "commentaries"
