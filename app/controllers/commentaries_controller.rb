@@ -34,6 +34,7 @@ class CommentariesController < ApplicationController
   #     end
   #   end
   # end
+  
   def create
     @article = Article.find(params[:article_id])
     @commentary = @article.commentaries.create(commentary_params)

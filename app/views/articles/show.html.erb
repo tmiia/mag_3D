@@ -29,26 +29,9 @@
 
 
 <h2>Comments</h2>
-<% @article.commentaries.each do |commentary| %>
+<%= render @article.commentaries %>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= commentary.comment %>
-  </p>
-<% end %>
 
-<h2>Add a comment:</h2>
-<%= form_with model: [ @article, @article.commentaries.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-  
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<h2>Create a comment</h2>
+<%= render 'commentaries/form' %>
+
