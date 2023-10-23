@@ -1,10 +1,12 @@
 <h1>En 360</h1>
 
+
+
 <div id="articles">
-  <% @long_articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
+    <% @long_articles.each do |article| %>
+      <%= render article %>
+      <p>
+        <%= link_to "Show this article", article %>
+      </p>
+    <% end %>
 </div>
