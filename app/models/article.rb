@@ -1,5 +1,7 @@
 class Article < ApplicationRecord
     has_many :commentaries
+    # has_many :article_tags
+    belongs_to :category
     
     validates :title, presence: true
     validates :lead, presence: true, length: { maximum: 300 }
