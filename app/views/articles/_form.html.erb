@@ -47,12 +47,12 @@
   </div>
 
   <div>
-    <%= form.label :is_longformat, style: "display: block" %>
+    <%= form.label :is_longformat, style: "display: block", permitted: false %>
     <%= form.check_box :is_longformat %>
   </div>
 
   <div>
-    <%= form.label :is_draft, style: "display: block" %>
+    <%= form.label :is_draft, style: "display: block", permitted: false %>
     <%= form.check_box :is_draft %>
   </div>
 
