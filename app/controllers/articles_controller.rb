@@ -7,6 +7,14 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def en_360
+    @long_articles = Article.where(is_longformat: true)
+  end
+
+  def actus
+    @info_articles = Article.where(is_longformat: false)
+  end
+
   # GET /articles/1 or /articles/1.json
   def show
   end

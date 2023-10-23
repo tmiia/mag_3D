@@ -1,0 +1,10 @@
+<h1>Liste d'actus</h1>
+
+<div id="articles">
+  <% @info_articles.each do |article| %>
+    <%= render article %>
+    <p>
+      <%= link_to "Show this article", article %>
+    </p>
+  <% end %>
+</div>
