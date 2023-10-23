@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_152816) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_102340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_152816) do
     t.boolean "is_masked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "debate_id", null: false
+    t.bigint "article_id", null: false
+    t.bigint "commentary_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["article_id"], name: "index_commentaries_on_article_id"
+    t.index ["commentary_id"], name: "index_commentaries_on_commentary_id"
+    t.index ["debate_id"], name: "index_commentaries_on_debate_id"
+    t.index ["user_id"], name: "index_commentaries_on_user_id"
   end
 
   create_table "debates", force: :cascade do |t|
@@ -109,4 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_152816) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commentaries", "articles"
+  add_foreign_key "commentaries", "commentaries"
+  add_foreign_key "commentaries", "debates"
+  add_foreign_key "commentaries", "users"
 end
