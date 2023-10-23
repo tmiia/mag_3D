@@ -9,6 +9,25 @@
   <%= button_to "Destroy this article", @article, method: :delete %>
 </div>
 
+<ul class="share">
+  <li>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank" rel="noopener" title="<%= @article.title %>">
+      <span>Facebook</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.original_url %>" target="_blank" rel="noopener" title="<%= @article.title %>">
+      <span>Linkedin</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/intent/tweet?text=<%= @article.title %> <%= request.original_url %>" target="_blank" rel="noopener" title="<%= @article.title %>">
+      <span>Twitter</span>
+    </a>
+  </li>
+</ul>
+
+
 <h2>Comments</h2>
 <% @article.commentaries.each do |commentary| %>
 
