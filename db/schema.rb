@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_133427) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,8 +28,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
   end
 
   create_table "article_tags", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_tags_on_article_id"
+    t.index ["tag_id"], name: "index_article_tags_on_tag_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -44,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
     t.boolean "is_draft"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -74,6 +80,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
     t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_debates_on_category_id"
+  end
+
+  create_table "favoris", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_favoris_on_article_id"
+    t.index ["user_id"], name: "index_favoris_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -84,6 +101,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_likes_on_user_id"
     t.bigint "commentary_id", null: false
     t.index ["commentary_id"], name: "index_likes_on_commentary_id"
   end
@@ -119,9 +138,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_tags", "articles"
+  add_foreign_key "article_tags", "tags"
+  add_foreign_key "articles", "categories"
   add_foreign_key "commentaries", "articles"
   add_foreign_key "commentaries", "commentaries"
   add_foreign_key "commentaries", "debates"
   add_foreign_key "commentaries", "users"
+  add_foreign_key "debates", "categories"
+  add_foreign_key "favoris", "articles"
+  add_foreign_key "favoris", "users"
+  add_foreign_key "likes", "users"
   add_foreign_key "likes", "commentaries"
 end
