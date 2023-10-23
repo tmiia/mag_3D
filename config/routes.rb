@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :commentaries
   end
 
-  resources :debates
+  resources :debates do
+    resources :commentaries
+  end
 
   get :legal, controller: :legal
   namespace :legal do

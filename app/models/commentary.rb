@@ -1,9 +1,7 @@
 class Commentary < ApplicationRecord
     belongs_to :user
-    belongs_to :article
     belongs_to :debate
+    belongs_to :article
 
     has_many :likes
-
-    validates :comment, presence: true
 end
