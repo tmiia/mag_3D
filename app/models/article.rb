@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+    has_many :commentaries
+    
     validates :title, presence: true
     validates :lead, presence: true, length: { maximum: 300 }
     validates :text_content, presence: true

@@ -1,6 +1,6 @@
 class DebatesController < ApplicationController
   before_action :set_debate, only: %i[ show edit update destroy ]
-
+  add_breadcrumb "débats", :debates_path, only: [:index]
   # GET /debates or /debates.json
   def index
     @debates = Debate.all

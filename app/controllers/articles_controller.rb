@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
-
+  # add_breadcrumb "admin", :rails_admin_path, unles: [:index, :show]
+  add_breadcrumb "articles", :articles_path, only: [:index, :show]
   # GET /articles or /articles.json
   def index
     @articles = Article.all
@@ -13,10 +14,12 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    add_breadcrumb "new-article", :new_article_path
   end
 
   # GET /articles/1/edit
   def edit
+    add_breadcrumb "edit-article", :edit_article_path
   end
 
   # POST /articles or /articles.json
