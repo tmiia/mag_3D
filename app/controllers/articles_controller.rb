@@ -8,10 +8,12 @@ class ArticlesController < ApplicationController
   end
 
   def en_360
+    add_breadcrumb "fomat en 360", :en_360_path
     @long_articles = Article.where(is_longformat: true)
   end
 
   def actus
+    add_breadcrumb "les actus", :actus_path
     @info_articles = Article.where(is_longformat: false)
   end
 
