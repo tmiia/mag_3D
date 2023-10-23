@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_102340) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_121536) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_102340) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "commentary_id", null: false
+    t.index ["commentary_id"], name: "index_likes_on_commentary_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -121,4 +123,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_102340) do
   add_foreign_key "commentaries", "commentaries"
   add_foreign_key "commentaries", "debates"
   add_foreign_key "commentaries", "users"
+  add_foreign_key "likes", "commentaries"
 end
