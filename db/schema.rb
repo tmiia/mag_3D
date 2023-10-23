@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_152442) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_153209) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,10 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_152442) do
     t.boolean "is_masked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "article_id", null: false
-    t.bigint "commentary_id", null: false
-    t.index ["article_id"], name: "index_commentaries_on_article_id"
-    t.index ["commentary_id"], name: "index_commentaries_on_commentary_id"
   end
 
   create_table "debates", force: :cascade do |t|
@@ -126,8 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_152442) do
   end
 
   add_foreign_key "articles", "categories"
-  add_foreign_key "commentaries", "articles"
-  add_foreign_key "commentaries", "commentaries"
   add_foreign_key "debates", "categories"
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"
