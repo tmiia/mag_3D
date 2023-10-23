@@ -102,9 +102,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_133427) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_likes_on_user_id"
     t.bigint "commentary_id", null: false
     t.index ["commentary_id"], name: "index_likes_on_commentary_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -148,6 +148,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_133427) do
   add_foreign_key "debates", "categories"
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"
-  add_foreign_key "likes", "users"
   add_foreign_key "likes", "commentaries"
+  add_foreign_key "likes", "users"
 end
