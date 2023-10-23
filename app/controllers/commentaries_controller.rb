@@ -20,19 +20,30 @@ class CommentariesController < ApplicationController
   end
 
   # POST /commentaries or /commentaries.json
-  def create
-    @commentary = Commentary.new(commentary_params)
+  # def create
+  #   @commentary = Commentary.new(commentary_params)
 
-    respond_to do |format|
-      if @commentary.save
-        format.html { redirect_to commentary_url(@commentary), notice: "Commentary was successfully created." }
-        format.json { render :show, status: :created, location: @commentary }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @commentary.errors, status: :unprocessable_entity }
-      end
-    end
+    
+  #   respond_to do |format|
+  #     if @commentary.save
+  #       format.html { redirect_to commentary_url(@commentary), notice: "Commentary was successfully created." }
+  #       format.json { render :show, status: :created, location: @commentary }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @commentary.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  def create
+    @article = Article.find(params[:article_id])
+    @commentary = @article.commentaries.create(commentary_params)
+    redirect_to article_path(@article)
   end
+
+  private
+    def commentary_params
+      params.require(:comment)
+    end
 
   # PATCH/PUT /commentaries/1 or /commentaries/1.json
   def update
