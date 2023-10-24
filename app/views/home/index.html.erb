@@ -1,1 +1,25 @@
-<h1>HOME</h1>
+<main class="home">
+
+  <h1>HOME</h1>
+
+  <section class="last-longformat">
+    <div class="container">
+      <article class="article">
+        <div class="content">
+          <hgroup>
+            <h3><%= link_to @article.title, @article %></h3>
+            <p><%= @article.lead %></p>
+          </hgroup>
+          <div class="category <%= @article.category %>">
+            <%= @article.category %>
+          </div>
+          <div class="media">
+            <img src="<%= @article.thumbnail %>">
+          </div>
+        </div>
+        <div class="meta"><%= @article.created_at %></div>
+      </article>
+    </div>
+  </section>
+
+</main>

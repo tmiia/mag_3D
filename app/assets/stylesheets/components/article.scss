@@ -1,0 +1,32 @@
+@import '../config.scss';
+
+.article {
+    display: flex;
+    flex-direction: column-reverse;
+    .content {
+        position: relative;
+        hgroup, 
+        .category {
+            z-index: 3;
+            color: white;
+        }
+        h3 a {
+            @include stretched-link;
+        }
+        .media {
+            border-radius: $article-border-radius;
+            height: $article-height;
+            overflow: hidden;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+            img {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
+}

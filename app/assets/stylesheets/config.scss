@@ -19,6 +19,10 @@ $science: #A7B6ED;
 $header-background-color: $body-background-color;
 $header-color: $body-color;
 
+// Articles
+$article-border-radius: 15px;
+$article-height: px2rem(220);
+
 // Breakpoints
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1440px);
 
