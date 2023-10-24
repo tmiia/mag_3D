@@ -2,9 +2,7 @@
 
 <%= render @debate %>
 
-<div>
-  <%= link_to "Edit this debate", edit_debate_path(@debate) %> |
-  <%= link_to "Back to debates", debates_path %>
 
-  <%= button_to "Destroy this debate", @debate, method: :delete %>
-</div>
+<%= render @debate.poll %>
+
+
