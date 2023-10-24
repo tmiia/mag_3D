@@ -27,7 +27,13 @@ $article-height: px2rem(220);
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1440px);
 
 // Spacings
-$spacing0: px2rem(12);
+$spacing0: px2rem(8);
+$spacing1: px2rem(16);
+$spacing2: px2rem(32);
+$spacing3: px2rem(40);
+$spacing4: px2rem(48);
+$spacing5: px2rem(56);
+$spacing6: px2rem(120);
 
 // Grid
 $grid-gutter: px2rem(64);
