@@ -22,4 +22,26 @@
   </li>
 </ul>
 
+<h2>Commentaires</h2>
 
+<% @article.comments.each do |comment| %>
+  <div class="comment">
+    <strong><%= comment.user.pseudonym %></strong>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
+
+<h2>Nouveau Commentaire</h2>
+
+<% if user_signed_in? %>
+  <%= form_for([@article, @article.comments.build]) do |f| %>
+    <div class="field">
+      <%= f.text_area :body, placeholder: "Votre commentaire..." %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Poster le commentaire" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Connectez-vous pour poster un commentaire.</p>
+<% end %>
