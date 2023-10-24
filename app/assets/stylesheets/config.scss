@@ -5,5 +5,18 @@
 $body-color: black;
 $body-background-color: white;
 
+// Header
+$header-background-color: $body-background-color;
+$header-color: $body-color;
+
 // Breakpoints
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1440px);
+
+// Spacings
+$spacing0: px2rem(12);
+
+// Icons
+$icons: ();
+$icons: map-merge($icons, ("icon-debate": "\ee00"));
+$icons: map-merge($icons, ("icon-menu": "\ee01"));
+$icons: map-merge($icons, ("icon-home": "\ee02"));
