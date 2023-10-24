@@ -2,7 +2,7 @@
 
   <h1>HOME</h1>
 
-  <section class="last-longformat">
+  <section class="last-longformat <%= @article.category %>politique">
     <div class="container">
       <article class="article">
         <div class="content">
@@ -17,7 +17,7 @@
             <img src="<%= @article.thumbnail %>">
           </div>
         </div>
-        <div class="meta"><%= @article.created_at %></div>
+        <div class="meta"><%= @article.created_at.strftime('%d %B %Y') %></div>
       </article>
     </div>
   </section>

@@ -16,6 +16,12 @@ body {
     }
 }
 
+main {
+    max-width: $grid-max-width;
+    padding-left: half($grid-gutter-sm);
+    padding-right: half($grid-gutter-sm);
+}
+
 ul, ol {
     padding-left: 0;
     list-style-position: inside;

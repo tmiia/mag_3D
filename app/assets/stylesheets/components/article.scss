@@ -3,29 +3,48 @@
 .article {
     display: flex;
     flex-direction: column-reverse;
+    a {
+        text-decoration: none;
+    }
     .content {
+        height: $article-height;
         position: relative;
-        hgroup, 
-        .category {
-            z-index: 3;
-            color: white;
+        .media img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
         }
         h3 a {
             @include stretched-link;
         }
-        .media {
-            border-radius: $article-border-radius;
-            height: $article-height;
-            overflow: hidden;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: -1;
-            img {
-                height: 100%;
-                object-fit: cover;
+        @include media-breakpoint-up(md) {
+            display: grid;
+            gap: $grid-gutter;
+            grid-template-columns: repeat(12, 1fr);
+            hgroup {
+                grid-column: 1 / 6;
+            }
+            .media {
+                grid-column: 7 / 12;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            hgroup, 
+            .category {
+                z-index: 3;
+                &, a {
+                    color: white;
+                }
+            }
+            .media {
+                border-radius: $article-border-radius;
+                height: $article-height;
+                overflow: hidden;
+                left: 0;
+                position: absolute;
+                top: 0;
                 width: 100%;
+                z-index: -1;
             }
         }
     }
