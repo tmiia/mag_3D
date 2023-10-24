@@ -1,0 +1,13 @@
+// @font-face {
+//     font-display: swap;
+//     font-family: 'Raleway';
+//     font-weight: normal;
+//     src: asset-url('raleway/raleway-regular.woff') format("woff"), asset-url('raleway/raleway-regular.woff2') format("woff2");
+// }
+
+@font-face {
+    font-display: block;
+    font-family: 'Iconfont';
+    font-weight: normal;
+    src: asset-url('iconfont/IconFont.ttf') format("ttf"), asset-url('iconfont/IconFont.woff') format("woff"), asset-url('iconfont/IconFont.woff2') format("woff2");
+}

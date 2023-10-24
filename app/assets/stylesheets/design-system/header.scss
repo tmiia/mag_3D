@@ -1,16 +1,36 @@
 @import '../config.scss';
 
 header#document-header {
+    background-color: $header-background-color;
+    // left: 0;
+    // position: fixed;
+    // top: 0;
+    width: 100%;
     ul {
         list-style: none;
+        @include icon('icon-home');
     }
     .logo img {
         display: block;
         width: px2rem(50);
     }
+    @include media-breakpoint-down(md) {
+        ul#navigation {
+            display: none;
+        }
+    }
     @include media-breakpoint-up(md) {
         button[aria-controls="navigation"] {
             display: none;
+        }
+        nav,
+        ul#navigation {
+            align-items: center;
+            display: flex;
+            gap: $spacing0;
+        }
+        nav {
+            justify-content: space-between;
         }
     }
 }

@@ -1,3 +1,5 @@
+@import './design-system/fonts.scss';
+
 @function px2rem($size) {
     $remSize: $size / 16;
     @return #{$remSize}rem;
@@ -9,5 +11,21 @@
 }
 
 @function half($size) {
-    @return calc(#{$size} / 2)
+    @return calc(#{$size} / 2);
 }
+
+@mixin icon($icon-name: '', $pseudo-element: before) {
+    &::#{$pseudo-element}{
+        content: map-get($icons, $icon-name);
+        display: inline-block;
+        font-family: 'Iconfont';
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        speak: never;
+        text-transform: none;
+        vertical-align: middle;
+    }
+}
+    
