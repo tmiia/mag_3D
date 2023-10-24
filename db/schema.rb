@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_100844) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_122913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,11 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_100844) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "article_tags", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "lead"
@@ -44,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_100844) do
     t.boolean "is_draft"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -58,6 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_100844) do
     t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_debates_on_category_id"
   end
 
   create_table "favoris", force: :cascade do |t|
@@ -84,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_100844) do
     t.integer "count_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "lead"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -105,6 +105,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_100844) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "categories"
+  add_foreign_key "debates", "categories"
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"
 end
