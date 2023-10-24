@@ -1,5 +1,5 @@
 class Debate < ApplicationRecord
-    has_many :commentaries
+    has_many :debate_responses
 
     has_one :poll
     belongs_to :category
