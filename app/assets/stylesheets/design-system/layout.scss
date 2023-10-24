@@ -1,0 +1,25 @@
+@import '../config.scss';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+body {
+    color: $body-color;
+    background: $body-background-color;
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition-duration: 0s !important;
+        }
+    }
+}
+
+ul, ol {
+    padding-left: 0;
+    list-style-position: inside;
+    > li > p {
+        display: inline;
+    }
+}

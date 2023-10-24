@@ -10,11 +10,11 @@
   </head>
 
   <body>
-    <header>
-      <nav>
+    <header id="document-header">
+      <nav class="header-menu">
         <ul>
           <li>
-            <a href="/">Accueil</a>
+            <a href="/" class="logo"><%= image_tag ("logo-black.svg")%></a>
           </li>
           <li> <%= link_to "En 360", :en_360 %> </li>
           <li> <%= link_to "Actus", :actus %> </li>

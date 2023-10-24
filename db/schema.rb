@@ -60,9 +60,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
     t.boolean "is_masked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "commentary_id"
-    t.integer "debate_id"
-    t.integer "user_id"
+    t.bigint "debate_id", null: false
+    t.bigint "commentary_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["commentary_id"], name: "index_commentaries_on_commentary_id"
+    t.index ["debate_id"], name: "index_commentaries_on_debate_id"
+    t.index ["user_id"], name: "index_commentaries_on_user_id"
   end
 
   create_table "debates", force: :cascade do |t|
@@ -130,6 +133,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
   end
 
   add_foreign_key "articles", "categories"
+  add_foreign_key "commentaries", "commentaries"
+  add_foreign_key "commentaries", "debates"
+  add_foreign_key "commentaries", "users"
   add_foreign_key "debates", "categories"
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"

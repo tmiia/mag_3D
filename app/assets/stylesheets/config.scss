@@ -1,0 +1,9 @@
+@import './dependencies/bootstrap-breakpoints.scss';
+@import './utils.scss';
+
+// Colors
+$body-color: black;
+$body-background-color: white;
+
+// Breakpoints
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1440px);
