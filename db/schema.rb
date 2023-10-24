@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_10_24_130408) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_131023) do
+>>>>>>> ef75409542df2eff5c94f4af09c9f59024e4b860
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,6 +103,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_130408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "lead"
+    t.bigint "debate_id", null: false
+    t.index ["debate_id"], name: "index_polls_on_debate_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -126,4 +132,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_130408) do
   add_foreign_key "debates", "categories"
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"
+  add_foreign_key "polls", "debates"
 end
