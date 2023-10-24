@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @article = Article.where(is_longformat: true).first
+    @long_format = Article.where(is_longformat: true)
+    @actus = Article.where(is_longformat: false)
   end
 end

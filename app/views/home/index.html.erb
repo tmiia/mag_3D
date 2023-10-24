@@ -2,24 +2,52 @@
 
   <h1>HOME</h1>
 
-  <section class="last-longformat <%= @article.category %>politique">
-    <div class="container">
-      <article class="article">
-        <div class="content">
-          <hgroup>
-            <h3><%= link_to @article.title, @article %></h3>
-            <p><%= @article.lead %></p>
-          </hgroup>
-          <div class="category <%= @article.category %>">
-            <%= @article.category %>
+  <h2>En 360</h2>
+
+  <% @long_format.each do |article| %>
+    <section class="last-longformat <%= category_name_from_id(article.category_id) %> politique">
+      <div class="container">
+        <article class="article">
+          <div class="content">
+            <hgroup>
+              <h3><%= link_to article.title, article %></h3>
+              <p><%= article.lead %></p>
+            </hgroup>
+            <div class="category <%= category_name_from_id(article.category_id) %>">
+              <%= category_name_from_id(article.category_id) %>
+            </div>
+            <div class="media">
+              <img src="<%= article.thumbnail %>">
+            </div>
           </div>
-          <div class="media">
-            <img src="<%= @article.thumbnail %>">
+          <div class="meta"><%= article.created_at.strftime('%d %B %Y') %></div>
+        </article>
+      </div>
+    </section>
+  <% end %>
+
+  <h2>Les actus</h2>
+
+  <% @actus.each do |actus| %>
+    <section class=" <%= category_name_from_id(actus.category_id) %> politique">
+      <div class="container">
+        <article class="article">
+          <div class="content">
+            <hgroup>
+              <h3><%= link_to actus.title, actus %></h3>
+              <p><%= actus.lead %></p>
+            </hgroup>
+            <div class="category <%= category_name_from_id(actus.category_id) %>">
+              <%= category_name_from_id(actus.category_id) %>
+            </div>
+            <div class="media">
+              <img src="<%= actus.thumbnail %>">
+            </div>
           </div>
-        </div>
-        <div class="meta"><%= @article.created_at.strftime('%d %B %Y') %></div>
-      </article>
-    </div>
-  </section>
+          <div class="meta"><%= actus.created_at.strftime('%d %B %Y') %></div>
+        </article>
+      </div>
+    </section>
+  <% end %>
 
 </main>
