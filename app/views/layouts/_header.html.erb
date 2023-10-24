@@ -1,36 +1,38 @@
 <header id="document-header">
-  <nav class="header-menu">
-    <a href="/" class="logo">
-      <%= image_tag ("logo-black.svg")%>
-      <span>Accueil</span>
-    </a>
-    <%= link_to "Débats", :debates %>
-    <ul id="navigation" class="menu">
-      <li> <%= link_to "En 360", :en_360 %> </li>
-      <li> <%= link_to "Actus", :actus %> </li>
-      <li> <%= link_to "Débats", :debates %> </li>
-      <% if current_admin %>
-        <li>
-          <a href="/admin">Dashboard</a>
-        </li>
-      <% elsif current_user %>
-        <li>
-          <%= link_to 'Compte', edit_user_registration_path %>
-        </li>
-        <li>
-          <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-        </li>
-        <% else %>
-        <li>
-          <%= button_to new_user_session_path do %>Se connecter<% end %>
-        </li>
-        <li>
-          <%= link_to 'Inscription', new_user_registration_path %>
-        </li>
-      <% end %>
-    </ul>
-    <button type="button" aria-controls="navigation" aria-expanded="false" aria-label="Ouvrir / Fermer le menu">
-      <span>Menu</span>
-    </button>
-  </nav>
+  <div class="container">
+    <nav class="header-menu">
+      <a href="/" class="logo">
+        <%= image_tag ("logo-black.svg")%>
+        <span>Accueil</span>
+      </a>
+      <%= link_to "Débats", :debates %>
+      <ul id="navigation" class="menu">
+        <li> <%= link_to "En 360", :en_360 %> </li>
+        <li> <%= link_to "Actus", :actus %> </li>
+        <li> <%= link_to "Débats", :debates %> </li>
+        <% if current_admin %>
+          <li>
+            <a href="/admin">Dashboard</a>
+          </li>
+        <% elsif current_user %>
+          <li>
+            <%= link_to 'Compte', edit_user_registration_path %>
+          </li>
+          <li>
+            <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+          </li>
+          <% else %>
+          <li>
+            <%= button_to new_user_session_path do %>Se connecter<% end %>
+          </li>
+          <li>
+            <%= link_to 'Inscription', new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+      <button type="button" aria-controls="navigation" aria-expanded="false" aria-label="Ouvrir / Fermer le menu">
+        <span>Menu</span>
+      </button>
+    </nav>
+  </div>
   </header>
