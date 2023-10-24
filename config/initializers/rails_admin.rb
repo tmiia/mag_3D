@@ -58,7 +58,7 @@ RailsAdmin.config do |config|
       field :media
       field :mood_value
       field :keywords
-      field :category, :enum do
+      field :category_id, :enum do
         enum do
           Article.category_options
         end
@@ -75,7 +75,7 @@ RailsAdmin.config do |config|
       field :media
       field :mood_value
       field :keywords
-      field :category, :enum do
+      field :category_id, :enum do
         enum do
           Article.category_options
         end
