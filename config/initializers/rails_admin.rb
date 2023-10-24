@@ -53,12 +53,13 @@ RailsAdmin.config do |config|
     create do
       field :title
       field :lead
+      field :slug
       field :thumbnail
       field :text_content
       field :media
       field :mood_value
       field :keywords
-      field :category, :enum do
+      field :category_id, :enum do
         enum do
           Article.category_options
         end
@@ -70,12 +71,13 @@ RailsAdmin.config do |config|
     edit do
       field :title
       field :lead
+      field :slug
       field :thumbnail
       field :text_content
       field :media
       field :mood_value
       field :keywords
-      field :category, :enum do
+      field :category_id, :enum do
         enum do
           Article.category_options
         end
