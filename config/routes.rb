@@ -5,13 +5,9 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :articles do
-    resources :commentaries
-  end
+  resources :articles
 
-  resources :debates do
-    resources :commentaries
-  end
+  resources :debates 
 
 
   get :en_360, controller: :articles
