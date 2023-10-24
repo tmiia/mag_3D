@@ -5,6 +5,7 @@
       <h1>HOME</h1>
     </div>
   </section>
+  
   <section class="last-longformat">
     <div class="container">
       <h2>La vulgarisation du jour</h2>
@@ -15,8 +16,8 @@
               <h3><%= link_to @long_format_day.title, @long_format_day %></h3>
               <p><%= @long_format_day.lead %></p>
             </hgroup>
-            <div class="category <%= category_name_from_id(@long_format_day.category_id) %>">
-              <%= category_name_from_id(@long_format_day.category_id) %>
+            <div class="categories category-<%= @long_format_day.category_id %>">
+              <%= link_to category_name_from_id(@long_format_day.category_id), category_url_from_id(@long_format_day.category_id) %>
             </div>
             <div class="media">
               <img src="<%= @long_format_day.thumbnail %>">

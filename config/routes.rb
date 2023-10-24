@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get :en_360, controller: :articles
   get :actus, controller: :articles
   
-
+  resources :categories
 
   get :legal, controller: :legal
   namespace :legal do

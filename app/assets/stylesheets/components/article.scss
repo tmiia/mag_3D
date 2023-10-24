@@ -14,8 +14,15 @@
             object-fit: cover;
             width: 100%;
         }
-        h3 a {
-            @include stretched-link;
+        hgroup {
+            z-index: 1;
+            h3 a {
+                @include stretched-link;
+            }
+        }
+        .categories a {
+            position: relative;
+            z-index: 3;
         }
         @include media-breakpoint-up(md) {
             display: grid;
