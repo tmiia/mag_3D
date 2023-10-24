@@ -28,4 +28,9 @@
         vertical-align: middle;
     }
 }
-    
+
+@mixin reset-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+}

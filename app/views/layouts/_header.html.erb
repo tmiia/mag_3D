@@ -1,6 +1,10 @@
 <header id="document-header">
   <nav class="header-menu">
-    <a href="/" class="logo"><%= image_tag ("logo-black.svg")%></a>
+    <a href="/" class="logo">
+      <%= image_tag ("logo-black.svg")%>
+      <span>Accueil</span>
+    </a>
+    <%= link_to "Débats", :debates %>
     <ul id="navigation" class="menu">
       <li> <%= link_to "En 360", :en_360 %> </li>
       <li> <%= link_to "Actus", :actus %> </li>
