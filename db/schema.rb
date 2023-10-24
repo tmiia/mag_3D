@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_134833) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_192204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_134833) do
     t.string "pseudonym"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "article_tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "articles", force: :cascade do |t|
@@ -109,6 +114,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_134833) do
     t.index ["debate_id"], name: "index_polls_on_debate_id"
   end
 
+  create_table "reads", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_reads_on_article_id"
+    t.index ["user_id"], name: "index_reads_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "label"
     t.datetime "created_at", null: false
@@ -124,6 +138,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_134833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "pseudonym"
+    t.integer "consecutive_days"
+    t.date "last_login_date"
+    t.date "last_article_access_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -137,4 +154,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_134833) do
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"
   add_foreign_key "polls", "debates"
+  add_foreign_key "reads", "articles"
+  add_foreign_key "reads", "users"
 end

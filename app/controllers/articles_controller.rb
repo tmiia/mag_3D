@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     add_breadcrumb @article.slug, :article_path
+    current_user.update_consecutive_days(@article.updated_at.to_date)
   end
 
   # GET /articles/new
