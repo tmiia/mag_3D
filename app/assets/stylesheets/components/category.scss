@@ -1,0 +1,25 @@
+@import '../config.scss';
+
+.category {
+    &.culture {
+        background-color: $culture;
+    }
+    &.ecology {
+        background-color: $ecology;
+    }
+    &.economy {
+        background-color: $economy;
+    }
+    &.politic {
+        background-color: $politic;
+    }
+    &.sport {
+        background-color: $sport;
+    }
+    &.society {
+        background-color: $society;
+    }
+    &.science {
+        background-color: $science;
+    }
+}
