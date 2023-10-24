@@ -25,9 +25,7 @@
             z-index: 3;
         }
         @include media-breakpoint-up(md) {
-            display: grid;
-            gap: $grid-gutter;
-            grid-template-columns: repeat(12, 1fr);
+            @include grid;
             hgroup {
                 grid-column: 1 / 6;
             }

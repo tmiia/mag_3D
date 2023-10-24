@@ -17,6 +17,10 @@
         <% elsif current_user %>
           <%= consecutive_days_of_reading(current_user) %>
           <li>
+            <%= link_to "Profil", user_path(current_user) %>
+            <img src="<%= current_user.avatar %>" class="avatar">
+          </li>
+          <li>
             <%= link_to 'Compte', edit_user_registration_path %>
           </li>
           <li>

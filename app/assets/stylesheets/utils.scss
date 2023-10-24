@@ -46,3 +46,9 @@
     border: 0;
     padding: 0;
 }
+
+@mixin grid ($cols: 12) {
+    display: grid;
+    gap: $grid-gutter;
+    grid-template-columns: repeat(12, 1fr);
+}

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :debate_responses, only: [:create, :edit, :update, :destroy]
   end
 
+  resources :users, only: [:show]
+
   get :en_360, controller: :articles
   get :actus, controller: :articles
   
