@@ -11,6 +11,10 @@ class Article < ApplicationRecord
     validates :is_longformat, inclusion: { in: [true, false] }, allow_blank: true
     validates :is_draft, inclusion: { in: [true, false] }, allow_blank: true
 
+    def self.category_options
+        Category.all.pluck(:label, :id)
+    end
+
     def self.ransackable_attributes(auth_object = nil)
         ["created_at", "id", "is_draft", "is_longformat", "keywords", "lead", "media", "mood_value", "text_content", "thumbnail", "title", "updated_at"]
     end

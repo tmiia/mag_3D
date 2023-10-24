@@ -26,18 +26,9 @@
     <%= form.text_field :thumbnail %>
   </div>
 
-    <div class="field">
-      <%= form.label :author %>
-      <% if @category %>
-        <%= @category.firstname + " " + @category.name %>
-      <% else %>
-        <%= form.collection_select :category_id, @categorys, :id, :name, prompt: 'Auteur ou autrice' %>
-      <% end %>
-    </div>
-
   <div>
     <%= form.label :text_content, style: "display: block" %>
-    <%= form.text_area :text_content %>
+    <%= form.text_area :text_content, class: "tinymce" %>
   </div>
 
   <div>
@@ -69,3 +60,6 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= tinymce_assets %>
+<script type="text/javascript" src="/assets/tinymce.js">
