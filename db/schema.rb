@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_10_24_134833) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_133711) do
->>>>>>> bb021c9dd8d753dbe9f104cfd885ae7119e8ea06
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_133711) do
     t.boolean "is_draft"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.string "slug"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
@@ -85,7 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_133711) do
     t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_debates_on_category_id"
   end
 
