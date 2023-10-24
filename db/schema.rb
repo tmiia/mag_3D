@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_092818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,8 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
     t.boolean "is_draft"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -54,28 +52,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "commentaries", force: :cascade do |t|
-    t.text "comment"
-    t.boolean "is_reported"
-    t.boolean "is_masked"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "debate_id", null: false
-    t.bigint "commentary_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["commentary_id"], name: "index_commentaries_on_commentary_id"
-    t.index ["debate_id"], name: "index_commentaries_on_debate_id"
-    t.index ["user_id"], name: "index_commentaries_on_user_id"
-  end
-
   create_table "debates", force: :cascade do |t|
     t.string "title"
     t.text "lead"
     t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_debates_on_category_id"
   end
 
   create_table "favoris", force: :cascade do |t|
@@ -95,10 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "commentary_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["commentary_id"], name: "index_likes_on_commentary_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -128,20 +106,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_072423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "pseudonym"
-    t.bigint "commentary_id", null: false
-    t.index ["commentary_id"], name: "index_users_on_commentary_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "articles", "categories"
-  add_foreign_key "commentaries", "commentaries"
-  add_foreign_key "commentaries", "debates"
-  add_foreign_key "commentaries", "users"
-  add_foreign_key "debates", "categories"
   add_foreign_key "favoris", "articles"
   add_foreign_key "favoris", "users"
-  add_foreign_key "likes", "commentaries"
-  add_foreign_key "likes", "users"
-  add_foreign_key "users", "commentaries"
 end
