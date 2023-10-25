@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,600;1,9..40,500;1,9..40,600&family=Livvic:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+    <%= render "/layouts/nav" %>
     <%= render "/layouts/header" %>
     <%= render_breadcrumbs :separator => ' / ' %>
     <%= yield %>

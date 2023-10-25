@@ -1,39 +1,45 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<section class="connection">
+  <div class="container">
+    <div class="header_form">
+      <span class="logo">
+          <%= image_tag ("logo-black.svg")%>
+      </span>
+      <div class="group_title">
+        <h1>S'inscrire à 3D</h2>
+        <h2>Décode, Dose, Discute</h2>
+        <h3>Vois le monde en perspective</h3>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <div class="form_fields">
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Entre ton mail" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :avatar %><br />
+          <%= f.text_field :avatar, autofocus: true, placeholder: "Entre un lien vers une image" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Entre ton mot de passe (6 caractères minimum)" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme ton mot de passe" %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :pseudonym %><br />
-    <%= f.text_field :pseudonym, autofocus: true, autocomplete: "pseudonym" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.text_field :avatar, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</section>

@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @debate %>
+
+<h2>Réponses</h2>
+
+<% @debate.debate_responses.each do |response| %>
+  <div class="response">
+    <strong><%= response.user.pseudonym %></strong>
+    <p><%= response.content %></p>
+  </div>
+<% end %>
+
+<h2>Nouvelle réponse</h2>
+
+<% if user_signed_in? %>
+  <%= form_for([@debate, @debate.debate_responses.build]) do |f| %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Votre commentaire..." %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Poster une réponse" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Connectez-vous pour poster un commentaire.</p>
+<% end %>

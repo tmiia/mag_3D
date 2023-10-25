@@ -1,13 +1,67 @@
-// @font-face {
-//     font-display: swap;
-//     font-family: 'Raleway';
-//     font-weight: normal;
-//     src: asset-url('raleway/raleway-regular.woff') format("woff"), asset-url('raleway/raleway-regular.woff2') format("woff2");
-// }
+// DM SANS
+@font-face {
+    font-display: swap;
+    font-family: 'DM Sans';
+    font-weight: normal;
+    font-style: normal;
+    src: asset-url('fonts/dmspppppans/dmsans-medium.ttf') format("ttf");
+}
+@font-face {
+    font-display: swap;
+    font-family: 'DM Sans';
+    font-weight: normal;
+    font-style: italic;
+    src: asset-url('fonts/dmsans/dmsans-mediumitalic.ttf') format("ttf");
+}
+@font-face {
+    font-display: swap;
+    font-family: 'DM Sans';
+    font-weight: 600;
+    font-style: normal;
+    src: asset-url('fonts/dmsans/dmsans-bold.ttf') format("ttf");
+}
+@font-face {
+    font-display: swap;
+    font-family: 'DM Sans';
+    font-weight: normal;
+    font-style: italic;
+    src: asset-url('fonts/dmsans/dmsans-bolditalic.ttf') format("ttf");
+}
 
+// LIVVIC
+@font-face {
+    font-display: swap;
+    font-family: 'Livvic';
+    font-weight: normal;
+    font-style: normal;
+    src: asset-url('fonts/livvic/livvic-medium.ttf') format("ttf");
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Livvic';
+    font-weight: normal;
+    font-style: italic;
+    src: asset-url('fonts/livvic/livvic-mediumitalic.ttf') format("ttf");
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Livvic';
+    font-weight: 600;
+    font-style: normal;
+    src: asset-url('fonts/livvic/livvic-semibold.ttf') format("ttf");
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Livvic';
+    font-weight: normal;
+    font-style: italic;
+    src: asset-url('fonts/livvic/livvic-semibolditalic.ttf') format("ttf");
+}
+
+// ICONS
 @font-face {
     font-display: block;
     font-family: 'Iconfont';
     font-weight: normal;
-    src: asset-url('iconfont/IconFont.ttf') format("ttf");
+    src: asset-url('fonts/iconfont/IconFont.ttf') format("ttf");
 }

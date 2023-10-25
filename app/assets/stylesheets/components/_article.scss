@@ -3,54 +3,39 @@
 .article {
     display: flex;
     flex-direction: column-reverse;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
     a {
         text-decoration: none;
     }
-    .content {
-        height: $article-height;
-        position: relative;
-        .media img {
-            height: 100%;
-            object-fit: cover;
-            width: 100%;
-        }
+    .article-content {
         hgroup {
             z-index: 1;
             h3 a {
                 @include stretched-link;
             }
         }
-        .categories a {
-            position: relative;
-            z-index: 3;
-        }
-        @include media-breakpoint-up(md) {
-            @include grid;
-            hgroup {
-                grid-column: 1 / 6;
+        .article-meta {
+            align-items: center;
+            display: flex;
+            gap: $spacing1;
+            margin-bottom: $spacing1;
+            a {
+                position: relative;
+                z-index: 3;
             }
-            .media {
-                grid-column: 7 / 12;
+            .mood,
+            .category {
+                padding: $spacing0 $spacing1;
+                border-radius: 50px;
+            }
+            .mood {
+                border: 1px solid $border-color;
             }
         }
         @include media-breakpoint-down(md) {
-            hgroup, 
-            .category {
-                z-index: 3;
-                &, a {
-                    color: white;
-                }
-            }
-            .media {
-                border-radius: $article-border-radius;
-                height: $article-height;
-                overflow: hidden;
-                left: 0;
-                position: absolute;
-                top: 0;
-                width: 100%;
-                z-index: -1;
-            }
+            padding: $spacing2;
         }
     }
 }

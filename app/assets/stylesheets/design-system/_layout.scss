@@ -7,8 +7,10 @@
 }
 
 body {
-    color: $body-color;
     background: $body-background-color;
+    color: $body-color;
+    font-family: $body-font-family;
+    padding-bottom: px2rem(80);
     @media (prefers-reduced-motion: reduce) {
         * {
             transition-duration: 0s !important;
@@ -26,6 +28,10 @@ body {
     }
 }
 
+p {
+    margin: 0;
+}
+
 ul, ol {
     padding-left: 0;
     list-style-position: inside;
@@ -33,3 +39,64 @@ ul, ol {
         display: inline;
     }
 }
+
+section + section {
+    margin-top: $spacing5;
+    @include media-breakpoint-up(md) {
+        margin-top: $spacing6;
+    }
+}
+input{
+    width: 100%;
+    padding: $spacing3;
+    border: none;
+   
+}
+
+
+input[type="submit"]{
+    border-radius: $border-radius;
+    background-color: $body-color;
+    color: $color-alt;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover{
+        background-color: $dark-75;
+        transition: background-color 0.05s ease-in-out ;
+    }
+    
+}
+
+.block-inline{
+    display: ruby;
+    margin: auto;
+}
+
+
+.field{
+    position: relative;
+    input{
+        border-radius: $border-radius;
+        border: 2px solid $border-color;
+        ::placeholder{
+            color: $dark-50;
+        }
+        &:focus{
+            border-color: $border-color;
+        }
+    }
+    label{
+        margin-left: 30px;
+        padding: 6px 8px;
+        background-color: $body-background-color;
+        position: absolute;
+        top: 4px;
+    }
+}
+
+input[type="checkbox"]{
+    max-width: fit-content;
+}
+
+
