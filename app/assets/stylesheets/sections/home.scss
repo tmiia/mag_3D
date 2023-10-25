@@ -1,28 +1,32 @@
 @import '../config.scss';
 
 .home {
-    .last-longformat {
-        .article-content {
-            @include grid(12, md);
-            flex-direction: column;
-        }
+    .last-longformat .article {
+        @include grid(12, md);
         .categories .time {
             background-color: $body-background-color;
             color: $body-color;
             padding: $spacing0 $spacing1;
             border-radius: 50px;
         }
-        @include media-breakpoint-up(md) {
-            hgroup {
-                grid-column: 1 / 6;
+        .media {
+            border-radius: $border-radius;
+            overflow: hidden;
+            img {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
             }
-            .media {
-                grid-column: 7 / 12;
+        }
+        .heading {
+            hgroup span {
+                margin-bottom: $spacing1;
             }
         }
         .categories {
+            align-items: center;
             display: flex;
-            gap: $spacing0;
+            gap: $spacing1;
             .mood,
             .category {
                 padding: $spacing0 $spacing1;
@@ -30,6 +34,24 @@
             }
             .mood {
                 border: 1px solid $border-color;
+            }
+            .time {
+                position: absolute;
+                top: $spacing3;
+                right: $spacing3;
+            }
+        }
+        @include media-breakpoint-up(md) {
+            .heading hgroup {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .article-content {
+                grid-column: 1 / 7;
+            }
+            .media {
+                grid-column: 7 / 13;
+                aspect-ratio: 16/9;
             }
         }
         @include media-breakpoint-down(md) {
@@ -44,6 +66,9 @@
             .lead {
                 color: $body-background-color;
             }
+            .lead {
+                position: relative;
+            }
             .heading,
             .heading hgroup {
                 display: flex;
@@ -54,6 +79,7 @@
                 }
             }
             .categories {
+                gap: $spacing0;
                 .mood {
                     border: 1px solid $body-background-color;
                 }
@@ -62,7 +88,6 @@
                 }
             }
             .media {
-                border-radius: $border-radius;
                 bottom: 0;
                 left: 0;
                 overflow: hidden;

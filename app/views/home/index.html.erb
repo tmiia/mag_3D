@@ -21,11 +21,11 @@
                 <div class="category category-<%= @long_format_day.category_id %>">
                   <%= link_to category_name_from_id(@long_format_day.category_id), category_url_from_id(@long_format_day.category_id) %>
                 </div>
-                <span class="mood"><%= @long_format_day.mood_value %></span>
+                <p class="mood mood-<%= @long_format_day.mood_value %>"><span></span> vibes</p>
                 <span class="time">9:45</span>
               </div>
             </div>
-            <p class="lead"><%= @long_format_day.lead.truncate(80) %></p>
+            <p class="lead"><%= @long_format_day.lead %></p>
           </div>
           <div class="media">
             <img src="<%= @long_format_day.thumbnail %>">

@@ -35,6 +35,12 @@ ul, ol {
     }
 }
 
+section + section {
+    margin-top: $spacing5;
+    @include media-breakpoint-up(md) {
+        margin-top: $spacing6;
+    }
+}
 input{
     width: 100%;
     padding: $spacing3;
