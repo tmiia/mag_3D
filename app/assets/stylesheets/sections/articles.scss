@@ -1,0 +1,5 @@
+@import '../config.scss';
+
+.articles {
+    @include grid(3, lg);
+}
