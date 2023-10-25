@@ -1,5 +1,23 @@
 @import '../config.scss';
 
 .articles {
+    @include grid(2, md);
     @include grid(3, lg);
+    .article {
+        margin-bottom: $spacing5;
+        margin-bottom: auto;
+        .article-content{
+            margin-top: -$spacing3;
+        }
+        .media img {
+            aspect-ratio: 16/7;
+            object-fit: cover;
+            border-top-right-radius: $border-radius;
+            border-top-left-radius: $border-radius;
+            width: 100%;
+        }
+        @include media-breakpoint-down(md) {
+            margin-bottom: $spacing4;
+        }
+    }
 }
