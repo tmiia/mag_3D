@@ -1,0 +1,29 @@
+<main class="category">
+
+  <section>
+    <div class="container">
+      <h1><%= @category.label %></h1>
+    </div>
+  </section>
+
+<div>
+  <%= sort_link(@q, :is_longformat, "Long format") %>
+  <%= sort_link(@q, :created_at, "Created at") %>
+</div>
+
+<% if @articles.any? %>
+  <section>
+    <div class="container">
+      <div class="articles">
+        <% @articles.each do |article| %>
+          <article class="article">
+            <%= render article %>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+
+</main>

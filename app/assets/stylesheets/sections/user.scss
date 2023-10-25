@@ -1,0 +1,19 @@
+@import '../config.scss';
+
+.user {
+    &__profile {
+        .hero > .container {
+            @include grid;
+            align-items: center;
+            .avatar {
+                grid-column: 1 / 3;
+                aspect-ratio: 1;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+            h1 {
+                grid-column: 4 / 8;
+            }
+        }
+    }
+}

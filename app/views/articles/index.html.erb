@@ -9,7 +9,10 @@
 <% end %>
 
 <div>
-  <%= sort_link(@q, :category, "Category") %>
+  <% @categories.each do |cat| %>
+    <%= link_to cat.label, "/articles?q%5Bcategory_label_cont%5D=#{cat.label}&commit=search" %>
+  <% end %>
+
   <%= sort_link(@q, :is_longformat, "Long format") %>
   <%= sort_link(@q, :created_at, "Created at") %>
 </div>

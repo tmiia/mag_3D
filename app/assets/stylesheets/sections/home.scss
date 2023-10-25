@@ -2,5 +2,14 @@
 
 .home {
     .last-longformat {
+        .article .content {
+            @include grid(12, md);
+            hgroup {
+                grid-column: 1 / 6;
+            }
+            .media {
+                grid-column: 7 / 12;
+            }
+        }
     }
 }

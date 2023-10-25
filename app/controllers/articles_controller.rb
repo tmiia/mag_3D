@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true)
+    @articles = @q.result.includes(:category)
+    @categories = Category.all
   end
 
   def en_360
@@ -24,8 +25,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
-    @article = Article.find(params[:id])
-    add_breadcrumb @article.slug, :article_path
+    @article = Article.find(params[:id])    
+    if current_user
+      current_user.update_consecutive_days
+    end
   end
 
   # GET /articles/new
