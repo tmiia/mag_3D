@@ -1,16 +1,39 @@
 @import '../config.scss';
 
 .connection{
-    min-width: $spacing6;
-    margin: $grid-gutter $grid-gutter-connection;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: $spacing4;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    max-width: 500px;
+    .header_form{
+        .logo img {
+            display: block;
+            width: px2rem(80);
+        }
+        display: flex;
+        gap: $spacing2;
+    }
+    
     form {
         display: flex;
         flex-direction: column;
-        gap: $spacing2;
-        width: 50%;
+        gap: $spacing3;
+        .form_fields{
+            margin: $spacing3 0;
+        }
+        a{
+            color: $body-color;
+            &:hover{
+                color: $dark-75;
+            }
+            &:active{
+                color: $dark-50;
+            }
+        }
+        .remember_me{
+            margin-top: $spacing2;
+        }
     }
-
 }
+

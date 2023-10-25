@@ -1,41 +1,55 @@
 
-<div class="connection">
-  <h2>Se connecter à 3D</h2>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <span></span>
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Entre un email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Entre ton mot de passe" %>
-    </div>
-
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
-    <% end %>
-
-    <% if devise_mapping.rememberable? %>
-      <div>
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+<section class="connection">
+  <div class="container">
+    <div class="header_form">
+      <span class="logo">
+          <%= image_tag ("logo-black.svg")%>
+      </span>
+      <div class="group_title">
+        <h1>Se connecter à 3D</h2>
+        <h2>Décode, Dose, Discute</h2>
+        <h3>Vois le monde en perspective</h3>
       </div>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
     </div>
-    <div class="block-inline">
-      <p>Tu n'as pas encore de compte ?</p>
-      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-      <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+    
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form_fields">
+      <div class="field">
+        <span></span>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Entre un email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Entre ton mot de passe" %>
+      </div>
+
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
+      <% end %>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="remember_me">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
       <% end %>
     </div>
-  <% end %>
 
+    <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+      <div class="block-inline">
+        <p>Tu n'as pas encore de compte ?</p>
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "Sign up", new_registration_path(resource_name) %>
+        <% end %>
+    </div>
+    <% end %>
+
+  </div>
 
   
-</div>
+</section>
