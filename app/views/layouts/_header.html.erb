@@ -9,9 +9,11 @@
     <% end %>
     <% if current_user %>
       <span class="streak">
+        <%= image_tag("flame.png") %>
         <%= consecutive_days_of_reading(current_user) %>
       </span>
-      <a href="<%= user_path(current_user) %>">
+      <a class="user" href="<%= user_path(current_user) %>">
+        <%= current_user.pseudonym %>
         <img src="<%= current_user.avatar %>" class="avatar">
       </a>
     <% else %>

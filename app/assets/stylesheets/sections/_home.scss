@@ -35,11 +35,6 @@
             .mood {
                 border: 1px solid $border-color;
             }
-            .time {
-                position: absolute;
-                top: $spacing3;
-                right: $spacing3;
-            }
         }
         @include media-breakpoint-up(md) {
             .heading hgroup {
@@ -48,6 +43,11 @@
             }
             .article-content {
                 grid-column: 1 / 7;
+                .time {
+                    position: absolute;
+                    top: $spacing3;
+                    right: $spacing3;
+                }
             }
             .media {
                 grid-column: 7 / 13;

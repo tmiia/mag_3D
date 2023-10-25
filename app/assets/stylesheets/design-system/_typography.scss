@@ -17,3 +17,8 @@ h3, h4 {
 h2, h3 {
     margin-bottom: $spacing5;
 }
+
+section > .container > h2,
+section > .container > h3 {
+    margin-bottom: $spacing5;
+}

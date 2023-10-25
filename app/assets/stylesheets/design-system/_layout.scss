@@ -9,6 +9,7 @@ body {
     color: $body-color;
     font-family: $body-font-family;
     padding-bottom: px2rem(80);
+    padding-top: px2rem(90);
     @media (prefers-reduced-motion: reduce) {
         * {
             transition-duration: 0s !important;
