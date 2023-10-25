@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true)
+    @articles = @q.result.includes(:category)
+    @categories = Category.all
   end
 
   def en_360

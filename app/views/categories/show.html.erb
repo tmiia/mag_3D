@@ -6,6 +6,10 @@
     </div>
   </section>
 
+<div>
+  <%= sort_link(@q, :is_longformat, "Long format") %>
+  <%= sort_link(@q, :created_at, "Created at") %>
+</div>
 
 <% if @articles.any? %>
   <section>
