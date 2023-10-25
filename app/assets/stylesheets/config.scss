@@ -5,7 +5,19 @@
 $body-color: #3F3F3F;
 $body-background-color: #FDFEFE;
 $color-accent: #7876E4;
-$color-alt: #F6FBFC;
+$color-alt: #FDFEFE;
+
+$culture: #BD0095;
+$ecology: #008D16;
+$economy: #B27600;
+$politic: #994900;
+$sport: #AC0000;
+$society: #0063BE;
+$science: #6D00C2;
+
+$dark-50: rgba(63,63,63,.5);
+$dark-75: rgba(63,63,63,.75);
+
 $border-color: transparentize(#3F3F3F, .5);
 
 $culture: #E4A7D7;
@@ -51,6 +63,7 @@ $spacing6: px2rem(100);
 
 // Grid
 $grid-gutter: px2rem(64);
+$grid-gutter-connection: px2rem(120);
 $grid-max-width: px2rem(1980);
 $grid-gutter-sm: px2rem(44);
 
@@ -59,3 +72,6 @@ $icons: ();
 $icons: map-merge($icons, ("icon-debate": "\ee00"));
 $icons: map-merge($icons, ("icon-menu": "\ee01"));
 $icons: map-merge($icons, ("icon-home": "\ee02"));
+
+//Dropshadow
+$drop-shadow: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));

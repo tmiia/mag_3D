@@ -41,3 +41,66 @@ section + section {
         margin-top: $spacing6;
     }
 }
+input{
+    width: 100%;
+    padding: $spacing2;
+    border: none;
+   
+}
+
+
+input[type="submit"]{
+    border-radius: $border-radius;
+    background-color: $body-color;
+    color: $color-alt;
+    border-radius: 50px;
+    cursor: pointer;
+    &:hover{
+        background-color: $dark-75;
+        transition: background-color 0.05s ease-in-out ;
+    }
+    
+}
+
+.block-inline{
+    display: ruby;
+    margin: auto;
+}
+
+a{
+    color: $body-color;
+    &:hover{
+        color: $dark-75;
+    }
+    &:active{
+        color: $dark-50;
+    }
+}
+
+
+form .field{
+        position: relative;
+        input{
+            border-radius: $border-radius;
+            border: 2px solid $dark-50;
+            ::placeholder{
+                color: $dark-50;
+            }
+            &:focus{
+                border-color: $body-background-color;
+            }
+        }
+        label{
+            margin-left: 30px;
+            padding: 6px 8px;
+            background-color: $body-background-color;
+            position: absolute;
+            top: 4px;
+        }
+    }
+
+    input[type="checkbox"]{
+        max-width: fit-content;
+    }
+
+
