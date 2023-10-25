@@ -34,3 +34,10 @@ ul, ol {
         display: inline;
     }
 }
+
+section + section {
+    margin-top: $spacing5;
+    @include media-breakpoint-up(md) {
+        margin-top: $spacing6;
+    }
+}
