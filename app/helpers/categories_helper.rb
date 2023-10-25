@@ -9,4 +9,7 @@ module CategoriesHelper
     return category if category
     return "Catégorie non trouvée"
   end
+  def get_categories
+    @categories = Category.all
+  end
 end

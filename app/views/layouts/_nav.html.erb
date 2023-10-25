@@ -6,9 +6,17 @@
   </button>
   <div id="menu">
     <ul>
-        <li><%= link_to "En 360", :en_360 %> </li>
-        <li><%= link_to "Actus", :actus %> </li>
-        <li><%= link_to "Débats", :debates %> </li>
+      <li><%= link_to "Tous les “en 360“", :en_360 %> </li>
+      <li><%= link_to "Toutes les actus", :actus %> </li>
+      <li><%= link_to "Tous les débats", :debates %> </li>
+      <li>
+        <ul class="categories">
+          <span>Les catégories</span>
+          <% get_categories.each do |category| %>
+            <li class="category category-<%= category.id %>"><%= category.label %></li>
+          <% end %>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>
