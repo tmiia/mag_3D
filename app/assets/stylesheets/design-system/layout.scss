@@ -29,3 +29,69 @@ ul, ol {
         display: inline;
     }
 }
+
+input{
+    width: 100%;
+    padding: $spacing1;
+    border: none;
+   
+}
+
+
+
+input[type="submit"]{
+    border-radius: $article-border-radius;
+    background-color: $body-color;
+    color: $color-alt;
+    border-radius: 50px;
+    cursor: pointer;
+    &:hover{
+        background-color: $dark-75;
+        transition: background-color 0.05s ease-in-out ;
+    }
+    
+}
+
+.block-inline{
+    display: ruby;
+}
+
+a{
+    color: $body-color;
+    &:hover{
+        color: $dark-75;
+    }
+    &:active{
+        color: $dark-50;
+    }
+}
+
+form{
+    width: 50%;
+    
+    .field{
+        position: relative;
+        input{
+            border-radius: $article-border-radius;
+            border: 2px solid $dark-50;
+            ::placeholder{
+                color: $dark-50;
+            }
+            &:focus{
+                border-color: $dark-75;
+            }
+        }
+        label{
+            margin-left: 30px;
+            padding: 6px 8px;
+            background-color: $body-background-color;
+            position: absolute;
+            top: 4px;
+        }
+    }
+
+    input[type="checkbox"]{
+        max-width: fit-content;
+    }
+
+}
