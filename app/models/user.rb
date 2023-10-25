@@ -3,14 +3,14 @@ class User < ApplicationRecord
   has_many :debate_responses
   has_many :reads
 
-  def update_consecutive_days(last_access_date)
-    if last_access_date == Date.today - 1
+  def update_consecutive_days
+    if last_article_read_date && last_article_read_date == Date.today - 1
       self.consecutive_days += 1
-    else
+    elsif last_article_read_date != Date.today
       self.consecutive_days = 1
     end
 
-    self.last_login_date = Date.today
+    self.last_article_read_date = Date.today
     save
   end
 

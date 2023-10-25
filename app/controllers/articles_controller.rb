@@ -25,10 +25,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
-    @article = Article.find(params[:id])
-    add_breadcrumb @article.slug, :article_path
+    @article = Article.find(params[:id])    
     if current_user
-      current_user.update_consecutive_days(@article.updated_at.to_date)
+      current_user.update_consecutive_days
     end
   end
 
