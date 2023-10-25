@@ -25,9 +25,25 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
-    @article = Article.find(params[:id])    
+    @article = Article.find(params[:id])
     if current_user
       current_user.update_consecutive_days
+    end
+
+    visited_articles = cookies[:visited_articles].to_s.split(",")
+    if visited_articles.include?(@article.id.to_s)
+    else
+      current_reading_mood = cookies[:cookie_reading_mood].to_i || 0
+      current_reading_mood += @article.mood_value
+      cookies[:cookie_reading_mood] = {
+        value: current_reading_mood,
+        expires: Time.current.end_of_day,
+      }
+      visited_articles << @article.id
+      cookies[:visited_articles] = {
+        value: visited_articles.join(","),
+        expires: Time.current.end_of_day,
+      }
     end
   end
 

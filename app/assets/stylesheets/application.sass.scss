@@ -22,9 +22,13 @@
 
  @import "design-system/header";
  @import "design-system/layout";
+ @import "design-system/nav";
+ @import "design-system/typography";
 
  @import "sections/home";
  @import "sections/user";
+ @import "sections/connection";
+ @import "sections/articles";
 
  @import "components/article";
  @import "components/category";
