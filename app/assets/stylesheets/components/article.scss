@@ -12,9 +12,16 @@
     .article-content {
         hgroup {
             z-index: 1;
-            h3 a {
+            h3 {
+                margin-bottom: $spacing1;
+            } 
+            a {
                 @include stretched-link;
+                color: $body-color;
             }
+        }
+        .more {
+            margin-top: $spacing1;
         }
         .article-meta {
             align-items: center;

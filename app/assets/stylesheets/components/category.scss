@@ -3,30 +3,44 @@
 .category {
     &-2 {
         background-color: $culture;
-        color: $culture-color;
+        &, a {
+            color: $culture-color;
+        } 
     }
     &-1 {
         background-color: $ecology;
-        color: $ecology-color;
+        &, a {
+            color: $ecology-color;
+        } 
     }
     &-7 {
         background-color: $economy;
-        color: $economy-color;
+        &, a {
+            color: $economy-color;
+        } 
     }
     &-3 {
         background-color: $politic;
-        color: $politic-color;
+        &, a {
+            color: $politic-color;
+        } 
     }
     &-4 {
         background-color: $sport;
-        color: $sport-color;
+        &, a {
+            color: $sport-color;
+        } 
     }
     &-6 {
         background-color: $society;
-        color: $society-color;
+        &, a {
+            color: $society-color;
+        } 
     }
     &-5 {
         background-color: $science;
-        color: $science-color;
+        &, a {
+            color: $science-color;
+        } 
     }
 }
