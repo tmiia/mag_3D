@@ -6,6 +6,11 @@ class DebatesController < ApplicationController
     @debates = Debate.all
   end
 
+  def debate_of_the_day
+    add_breadcrumb "Débat du jour", :debate_of_the_day_path
+    @debate = Debate.first
+  end
+
   # GET /debates/1 or /debates/1.json
   def show
   end

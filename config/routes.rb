@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get :en_360, controller: :articles
   get :actus, controller: :articles
+
+  get :debate_of_the_day, controller: :debates
   
   resources :categories
 

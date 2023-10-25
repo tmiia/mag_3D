@@ -10,6 +10,7 @@ body {
     background: $body-background-color;
     color: $body-color;
     font-family: $body-font-family;
+    padding-bottom: px2rem(80);
     @media (prefers-reduced-motion: reduce) {
         * {
             transition-duration: 0s !important;
@@ -25,6 +26,10 @@ body {
         padding-left: $grid-gutter-sm;
         padding-right: $grid-gutter-sm;
     }
+}
+
+p {
+    margin: 0;
 }
 
 ul, ol {

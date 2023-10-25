@@ -1,10 +1,11 @@
 @import './dependencies/bootstrap-breakpoints.scss';
 @import './utils.scss';
+@import './design-system/fonts.scss';
 
 // Colors
 $body-color: #3F3F3F;
 $body-background-color: #FDFEFE;
-$color-accent: #7876E4;
+$color-accent: #3F3F3F;
 $color-alt: #FDFEFE;
 
 $culture: #BD0095;
@@ -37,7 +38,7 @@ $science-color: #6D00C2;
 
 // Typography
 $headings-font-family: 'Livvic';
-$body-font-family: 'DM Sans';
+$body-font-family: 'DM Sans', Arial;
 
 // Header
 $header-background-color: $body-background-color;
