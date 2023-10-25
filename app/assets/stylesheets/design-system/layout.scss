@@ -37,15 +37,14 @@ ul, ol {
 
 input{
     width: 100%;
-    padding: $spacing1;
+    padding: $spacing2;
     border: none;
    
 }
 
 
-
 input[type="submit"]{
-    border-radius: $article-border-radius;
+    border-radius: $border-radius;
     background-color: $body-color;
     color: $color-alt;
     border-radius: 50px;
@@ -59,6 +58,7 @@ input[type="submit"]{
 
 .block-inline{
     display: ruby;
+    margin: auto;
 }
 
 a{
@@ -71,19 +71,17 @@ a{
     }
 }
 
-form{
-    width: 50%;
-    
-    .field{
+
+form .field{
         position: relative;
         input{
-            border-radius: $article-border-radius;
+            border-radius: $border-radius;
             border: 2px solid $dark-50;
             ::placeholder{
                 color: $dark-50;
             }
             &:focus{
-                border-color: $dark-75;
+                border-color: $body-background-color;
             }
         }
         label{
@@ -99,4 +97,4 @@ form{
         max-width: fit-content;
     }
 
-}
+

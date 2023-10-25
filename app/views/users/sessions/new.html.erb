@@ -1,9 +1,10 @@
 
 <div class="connection">
-  <h2>Log in</h2>
+  <h2>Se connecter à 3D</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
+      <span></span>
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Entre un email" %>
     </div>
@@ -14,7 +15,7 @@
     </div>
 
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+    <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
     <% end %>
 
     <% if devise_mapping.rememberable? %>
