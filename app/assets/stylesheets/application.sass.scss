@@ -14,10 +14,10 @@
  *= require_self
  */
 
- @import "dependencies/bootstrap-breakpoints";
  @import "design-system/fonts";
 
  @import "config";
+ @import "dependencies/bootstrap-breakpoints";
  @import "utils";
 
  @import "design-system/header";
