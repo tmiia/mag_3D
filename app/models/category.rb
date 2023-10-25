@@ -6,4 +6,10 @@ class Category < ApplicationRecord
     #     pluck(:label)
     # end
 
+    def self.ransackable_attributes(auth_object = nil)
+      ["id", "label"]
+    end
+    def self.ransackable_associations(auth_object = nil)
+      ["article"]
+    end
 end
