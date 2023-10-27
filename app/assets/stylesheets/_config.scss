@@ -3,19 +3,7 @@ $body-color: #3F3F3F;
 $body-background-color: #FDFEFE;
 $color-accent: #3F3F3F;
 $color-alt: #FDFEFE;
-
-$culture: #BD0095;
-$ecology: #008D16;
-$economy: #B27600;
-$politic: #994900;
-$sport: #AC0000;
-$society: #0063BE;
-$science: #6D00C2;
-
-$dark-50: rgba(63,63,63,.5);
-$dark-75: rgba(63,63,63,.75);
-
-$border-color: transparentize(#3F3F3F, .5);
+$color-text-alt: transparentize($body-color, .3);
 
 $culture: #E4A7D7;
 $culture-color: #BD0095;
@@ -32,9 +20,41 @@ $society-color: #0063BE;
 $science: #DBAEFF;
 $science-color: #6D00C2;
 
+$border-color: transparentize(#3F3F3F, .5);
+
 // Typography
-$headings-font-family: 'Livvic';
 $body-font-family: 'DM Sans', Arial;
+$headings-font-family: 'Livvic';
+
+$body-font-size: px2rem(14);
+$headings-font-weight: bold;
+
+$h1-font-size: px2rem(22);
+$h1-font-family: $headings-font-family;
+$h1-font-weight: $headings-font-weight;
+
+$h2-font-size: px2rem(20);
+$h2-font-family: $body-font-family;
+$h2-font-weight: $headings-font-weight;
+
+$h3-font-size: px2rem(22);
+$h3-font-size-sm: px2rem(16);
+$h3-font-family: $headings-font-family;
+$h3-font-weight: $headings-font-weight;
+
+$lead-font-size: px2rem(14);
+$lead-font-family: $headings-font-family;
+$lead-font-weight: normal;
+$lead-font-style: italic;
+
+$meta-font-size: px2rem(15);
+$meta-text-color: $color-text-alt;
+$meta-font-family: $body-font-family;
+
+$call-to-action-size: px2rem(15);
+$call-to-action-weight: bold;
+
+$tags-font-size: px2rem(12);
 
 // Header
 $header-background-color: $body-background-color;

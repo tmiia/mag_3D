@@ -10,6 +10,19 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
+  resources :articles do
+    member do
+      post 'add_to_favorites'
+      delete 'remove_from_favorites'
+    end
+  end
+
+  resources :polls do
+    member do
+      post 'vote'
+    end
+  end
+
   resources :debates 
   resources :debates do
     resources :debate_responses, only: [:create, :edit, :update, :destroy]

@@ -2,6 +2,36 @@
 
 <%= render @debate %>
 
+<% if user_signed_in? %>
+  <section class="debate-poll">
+    <div class="container">
+      <h2>Le débat du jour</h2>
+      <hgroup>
+        <h3><%= @poll.question %></h3>
+        <span><%= @poll.total_votes %> votes</span>
+      </hgroup>
+      <div class="actions">
+        <button class="vote-button" data-poll-id="<%= @poll.id %>" data-option="option_1"><%= @poll.label_1 %><% if @debate.results_visible %><span class="result"><%= @poll.result_1 %>%</span><% end %></button>
+        <button class="vote-button" data-poll-id="<%= @poll.id %>" data-option="option_2"><%= @poll.label_2 %><% if @debate.results_visible %><span class="result"><%= @poll.result_2 %>%</span><% end %></button>
+        <button class="vote-button" data-poll-id="<%= @poll.id %>" data-option="option_3"><%= @poll.label_3 %><% if @debate.results_visible %><span class="result"><%= @poll.result_3 %>%</span><% end %></button>
+      </div>
+    </div>
+  </section>
+<% else %>
+  <section class="poll-logout">
+    <div class="container">
+      <hgroup>
+        <h2>👋 P’tit tips !</h2>
+        <p>Connecte-toi pour participer au chat et au sondage !</p>
+      </hgroup>
+      <div class="actions">
+        <%= link_to "S'inscrire", new_user_registration_path %>
+        <%= link_to "Se connecter", new_user_session_path %>
+      </div>
+    </div>
+  </section>
+<% end %>
+
 <h2>Réponses</h2>
 
 <% @debate.debate_responses.each do |response| %>
@@ -25,3 +55,38 @@
 <% else %>
   <p>Connectez-vous pour poster un commentaire.</p>
 <% end %>
+
+<script>
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('vote-button')) {
+      e.preventDefault();
+      var pollId = e.target.getAttribute('data-poll-id');
+      var option = e.target.getAttribute('data-option');
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/polls/' + pollId + '/vote', true);
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          var response = JSON.parse(xhr.responseText);
+
+          if (response.success) {
+            alert('Votre vote a été enregistré avec succès.');
+          } else {
+            alert(response.message);
+          }
+        } else {
+          console.error('Erreur lors du vote : ' + xhr.status);
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error('Erreur lors du vote.');
+      };
+
+      var data = JSON.stringify({ option: option });
+      xhr.send(data);
+    }
+  });
+</script>

@@ -69,3 +69,55 @@
         grid-gap: $grid-gutter-sm;
     }
 }
+
+@mixin cta($bg: $color-accent, $color: white) {
+    background-color: $bg;
+    border-radius: 20px;
+    color: $color;
+    cursor: pointer;
+    padding: $spacing1 $spacing4;
+}
+@mixin category {
+    &-2 {
+        background-color: $culture;
+        &, a {
+            color: $culture-color;
+        }
+    }
+    &-1 {
+        background-color: $ecology;
+        &, a {
+            color: $ecology-color;
+        } 
+    }
+    &-7 {
+        background-color: $economy;
+        &, a {
+            color: $economy-color;
+        } 
+    }
+    &-3 {
+        background-color: $politic;
+        &, a {
+            color: $politic-color;
+        } 
+    }
+    &-4 {
+        background-color: $sport;
+        &, a {
+            color: $sport-color;
+        } 
+    }
+    &-6 {
+        background-color: $society;
+        &, a {
+            color: $society-color;
+        } 
+    }
+    &-5 {
+        background-color: $science;
+        &, a {
+            color: $science-color;
+        } 
+    }
+}

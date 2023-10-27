@@ -25,10 +25,10 @@
         a{
             color: $body-color;
             &:hover{
-                color: $dark-75;
+                color: $color-text-alt;
             }
             &:active{
-                color: $dark-50;
+                color: $color-text-alt;
             }
         }
         .remember_me{

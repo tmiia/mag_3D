@@ -23,9 +23,11 @@ class ArticlesController < ApplicationController
     @info_articles = @q.result(distinct: true)
   end
 
-  # GET /articles/1 or /articles/1.json
   def show
     @article = Article.find(params[:id])
+    @related_articles = Article.where(category: @article.category).where.not(id: @article.id)
+    @recommended_articles = []
+    
     if current_user
       current_user.update_consecutive_days
     end
@@ -35,11 +37,17 @@ class ArticlesController < ApplicationController
     else
       current_reading_mood = cookies[:cookie_reading_mood].to_i || 0
       current_reading_mood += @article.mood_value
+
+      
+      if current_reading_mood >= 5
+        @recommended_articles = Article.where(mood_value: -2..0).where.not(id: @article.id)
+      end
+
       cookies[:cookie_reading_mood] = {
         value: current_reading_mood,
         expires: Time.current.end_of_day,
       }
-      visited_articles << @article.id
+      visited_articles.append(@article.id)
       cookies[:visited_articles] = {
         value: visited_articles.join(","),
         expires: Time.current.end_of_day,
@@ -47,18 +55,30 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # GET /articles/new
+  def add_to_favorites
+    article = Article.find(params[:id])
+    unless current_user.favorites.exists?(article: article)
+      current_user.favorites.create(article: article)
+    end
+    redirect_to article, notice: "Le livre a été ajouté à vos favoris."
+  end
+  
+  def remove_from_favorites
+    article = Article.find(params[:id])
+    favorite_article = current_user.favorites.find_by(article: article)
+    favorite_article.destroy if favorite_article
+    redirect_to article, notice: "Le livre a été retiré de vos favoris."
+  end
+
   def new
     @article = Article.new
     add_breadcrumb "new-article", :new_article_path
   end
 
-  # GET /articles/1/edit
   def edit
     add_breadcrumb "edit-article", :edit_article_path
   end
 
-  # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
 
@@ -73,7 +93,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /articles/1 or /articles/1.json
   def update
     respond_to do |format|
       if @article.update(article_params)
@@ -86,7 +105,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # DELETE /articles/1 or /articles/1.json
   def destroy
     @article.destroy
 
@@ -97,12 +115,10 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :lead, :thumbnail, :text_content, :media, :mood_value, :keywords, :is_longformat, :is_draft)
     end

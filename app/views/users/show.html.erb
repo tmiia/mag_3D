@@ -4,7 +4,39 @@
   <div class="container">
     <img src="<%= @user.avatar %>" class="avatar">
     <h1>Profil de <%= @user.pseudonym %></h1>
+    <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+    <%= button_to "modifier", edit_user_registration_path, method: :get  %>
   </div>
 </header>
+
+
+<% if @user.favorite_articles.where(is_longformat: true).any? %>
+  <section>
+    <div class="container">
+      <h2>Tes “en 360” favs</h2>
+      <ul class="list-longformat">
+      <% @user.favorite_articles.where(is_longformat: true).each do |article| %>
+        <li><%= link_to article.title, article %></li>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p>Aucun “en 360” enregistré.</p>
+<% end %>
+
+<% if @user.favorite_articles.where(is_longformat: false).any? %>
+  <section>
+    <div class="container">
+      <h2>Tes Actus' favs</h2>
+      <ul class="list-actus">
+        <% @user.favorite_articles.where(is_longformat: false).each do |article| %>
+          <li><%= link_to article.title, article %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% else %>
+  <p>Aucunne Actu' enregistrée.</p>
+<% end %>
 
 </main>

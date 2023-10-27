@@ -1,5 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: %i[ show edit update destroy ]
+  protect_from_forgery with: :null_session
 
   # GET /polls or /polls.json
   def index
@@ -54,6 +55,31 @@ class PollsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to polls_url, notice: "Poll was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def vote
+    @poll = Poll.find(params[:id])
+    if !Vote.user_already_voted?(current_user, @poll)
+      case params[:option]
+      when 'option_1'
+        @poll.increment!(:count_1)
+      when 'option_2'
+        @poll.increment!(:count_2)
+      when 'option_3'
+        @poll.increment!(:count_3)
+      end
+
+      # Crée un enregistrement de vote pour l'utilisateur actuel
+      Vote.create(user: current_user, poll: @poll)
+
+      if @poll.debate
+        @poll.debate.update(results_visible: true)
+      end
+
+      render json: { success: true }
+    else
+      render json: { success: false, message: "Vous avez déjà voté dans ce sondage." }
     end
   end
 

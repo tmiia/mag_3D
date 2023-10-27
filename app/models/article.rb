@@ -2,6 +2,7 @@ class Article < ApplicationRecord
 
     belongs_to :category
     has_many :comments
+    has_many :favorites
 
     validates :title, presence: true
     validates :lead, presence: true, length: { maximum: 300 }

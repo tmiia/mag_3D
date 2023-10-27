@@ -6,16 +6,26 @@
     </div>
   </section>
 
-<div>
-  <%= sort_link(@q, :is_longformat, "Long format") %>
-  <%= sort_link(@q, :created_at, "Created at") %>
-</div>
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :title_cont %>
 
-<% if @articles.any? %>
+    <%= f.submit "Search" %>
+  <% end %>
+
   <section>
     <div class="container">
+      <% @categories.each do |cat| %>
+        <%= link_to cat.label, "/articles?q%5Bcategory_label_cont%5D=#{cat.label}&commit=search" %>
+      <% end %>
+    </div>
+  </section>
+
+<% if @articles.where(is_longformat: true).any? %>
+  <section>
+    <div class="container">
+      <h2>Les “en 360”</h2>
       <div class="articles">
-        <% @articles.each do |article| %>
+        <% @articles.where(is_longformat: true).each do |article| %>
           <article class="article">
             <%= render article %>
           </article>
@@ -25,5 +35,19 @@
   </section>
 <% end %>
 
+<% if @articles.where(is_longformat: false).any? %>
+  <section>
+    <div class="container">
+      <h2>Les actus</h2>
+      <div class="articles">
+        <% @articles.where(is_longformat: false).each do |article| %>
+          <article class="article">
+            <%= render article %>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </section>
+<% end %>
 
 </main>

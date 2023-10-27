@@ -1,27 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<main class="article__index">
 
-<h1>Articles</h1>
+  <p style="color: green"><%= notice %></p>
 
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :title_cont %>
+  <h1>Articles</h1>
 
-  <%= f.submit "Search" %>
-<% end %>
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :title_cont %>
 
-<div>
-  <% @categories.each do |cat| %>
-    <%= link_to cat.label, "/articles?q%5Bcategory_label_cont%5D=#{cat.label}&commit=search" %>
+    <%= f.submit "Search" %>
   <% end %>
 
-  <%= sort_link(@q, :is_longformat, "Long format") %>
-  <%= sort_link(@q, :created_at, "Created at") %>
-</div>
+  <section>
+    <div class="container">
+      <% @categories.each do |cat| %>
+        <%= link_to cat.label, "/articles?q%5Bcategory_label_cont%5D=#{cat.label}&commit=search" %>
+      <% end %>
 
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
-</div>
+      <%= sort_link(@q, :is_longformat, "Long format") %>
+      <%= sort_link(@q, :created_at, "Created at") %>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="articles">
+        <% @articles.each do |article| %>
+          <%= render article %>
+          <p>
+            <%= link_to "Show this article", article %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>

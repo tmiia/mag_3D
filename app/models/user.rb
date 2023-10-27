@@ -2,6 +2,10 @@ class User < ApplicationRecord
   has_many :comments
   has_many :debate_responses
   has_many :reads
+  has_many :votes
+
+  has_many :favorites
+  has_many :favorite_articles, through: :favorites, source: :article
 
   def update_consecutive_days
     if last_article_read_date && last_article_read_date == Date.today - 1

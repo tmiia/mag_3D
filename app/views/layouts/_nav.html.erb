@@ -1,22 +1,38 @@
-<nav class="header-navigation">
+<nav id="header-navigation">
   <%= link_to 'Accueil', root_path, class: 'link-home' %>
   <%= link_to 'Débat du jour', debate_of_the_day_path, class: 'link-debate' %>
-  <button type="button" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir / Fermer le menu">
+  <button class="btn__open" type="button" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
     <span>Menu</span>
   </button>
-  <div id="menu">
-    <ul>
-      <li><%= link_to "Tous les “en 360“", :en_360 %> </li>
-      <li><%= link_to "Toutes les actus", :actus %> </li>
-      <li><%= link_to "Tous les débats", :debates %> </li>
-      <li>
-        <ul class="categories">
-          <span>Les catégories</span>
-          <% get_categories.each do |category| %>
-            <li class="category category-<%= category.id %>"><%= category.label %></li>
-          <% end %>
-        </ul>
-      </li>
-    </ul>
+  <div class="menu">
+    <button class="btn__close" aria-label="Fermer le menu">
+      <span>Fermer</span>
+    </button>
+    <div class="container">
+      <ul>
+        <li><%= link_to "Tous les “en 360“", :en_360 %> </li>
+        <li><%= link_to "Toutes les actus", :actus %> </li>
+        <li><%= link_to "Tous les débats", :debates %> </li>
+        <li>
+          <ul class="categories">
+            <span>Les catégories</span>
+            <% get_categories.each do |category| %>
+              <li class="category category-<%= category.id %>"><%= category.label %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li>FAQ</li>
+      </ul>
+      <ul class="socials">
+        <li>Instagram</li>
+        <li>Facebook</li>
+        <li>X, ex-Twitter</li>
+      </ul>
+      <ul class="legals">
+        <li>CGU</li>
+        <li>Mentions légales</li>
+        <li>RGPD</li>
+      </ul>
+    </div>
   </div>
 </nav>

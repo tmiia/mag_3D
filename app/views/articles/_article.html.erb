@@ -1,5 +1,12 @@
 
 <div id="<%= dom_id article %>">
+
+  <% if user_signed_in? && current_user.favorites.exists?(article: article) %>
+    Favori
+  <% else %>
+    Pas favori
+  <% end %>
+
   <img src="<%= article.thumbnail %>">
   <p>
     <strong>Title:</strong>

@@ -9,10 +9,17 @@ class DebatesController < ApplicationController
   def debate_of_the_day
     add_breadcrumb "Débat du jour", :debate_of_the_day_path
     @debate = Debate.first
+    @poll = @debate.poll
   end
 
   # GET /debates/1 or /debates/1.json
   def show
+    @debate = Debate.find(params[:id])
+    @poll = @debate.poll
+
+    if current_user && current_user.voted?(@poll)
+      @debate.update(results_visible: true) if @poll.present?
+    end
   end
 
   # GET /debates/new

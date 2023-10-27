@@ -16,15 +16,6 @@
         <%= current_user.pseudonym %>
         <img src="<%= current_user.avatar %>" class="avatar">
       </a>
-    <% else %>
-      <ul>
-        <li>
-          <%= button_to new_user_session_path do %>Se connecter<% end %>
-        </li>
-        <li>
-          <%= link_to 'Inscription', new_user_registration_path %>
-        </li>
-      </ul>
     <% end %>
   </div>
 </header>
